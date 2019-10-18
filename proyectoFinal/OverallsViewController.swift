@@ -1,19 +1,18 @@
 //
-//  ViewControllerResultados.swift
+//  OverallsViewController.swift
 //  proyectoFinal
 //
-//  Created by Layla Tame on 10/12/19.
+//  Created by Alumno on 10/17/19.
 //  Copyright © 2019 Layla Tame. All rights reserved.
 //
 
 import UIKit
 
-class ViewControllerResultados: UIViewController {
-
+class OverallsViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
 

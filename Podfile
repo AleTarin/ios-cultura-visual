@@ -9,5 +9,6 @@ target 'proyectoFinal' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
+  pod 'UICircularProgressRing'
 
 end

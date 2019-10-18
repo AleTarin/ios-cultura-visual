@@ -8,25 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		8EEE84A7234F8B9E0059A991 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EEE84A6234F8B9E0059A991 /* GoogleService-Info.plist */; };
-		8EEFEBF42351EE5800472CD8 /* ViewControllerIndice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFEBF32351EE5800472CD8 /* ViewControllerIndice.swift */; };
-		8EEFEBF62351F01B00472CD8 /* TableViewCellTarea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFEBF52351F01B00472CD8 /* TableViewCellTarea.swift */; };
 		A24A9FA40BCF21CA2BB78F73 /* Pods_proyectoFinal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73B55F03194669449C97A97 /* Pods_proyectoFinal.framework */; };
-		AC73B1342352B48900C66F84 /* ViewControllerResultados.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC73B1332352B48900C66F84 /* ViewControllerResultados.swift */; };
 		ACE05C992335EF1F0033D277 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE05C982335EF1F0033D277 /* AppDelegate.swift */; };
 		ACE05C9B2335EF1F0033D277 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE05C9A2335EF1F0033D277 /* ViewController.swift */; };
 		ACE05C9E2335EF1F0033D277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE05C9C2335EF1F0033D277 /* Main.storyboard */; };
 		ACE05CA02335EF200033D277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE05C9F2335EF200033D277 /* Assets.xcassets */; };
 		ACE05CA32335EF200033D277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE05CA12335EF200033D277 /* LaunchScreen.storyboard */; };
 		FB29B113234E489800210FF1 /* ViewControllerQuestionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */; };
-		FB309F93234FA3BD00AF3FA7 /* questionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */; };
-		FB30A07A2357C39D00AF3FA7 /* question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB30A0792357C39D00AF3FA7 /* question.swift */; };
+		FBE9DC0E2358DCB500339B7C /* OverallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE9DC0D2358DCB500339B7C /* OverallsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8EEE84A6234F8B9E0059A991 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8EEFEBF32351EE5800472CD8 /* ViewControllerIndice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerIndice.swift; sourceTree = "<group>"; };
-		8EEFEBF52351F01B00472CD8 /* TableViewCellTarea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTarea.swift; sourceTree = "<group>"; };
-		AC73B1332352B48900C66F84 /* ViewControllerResultados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResultados.swift; sourceTree = "<group>"; };
 		ACE05C952335EF1E0033D277 /* proyectoFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proyectoFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE05C982335EF1F0033D277 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE05C9A2335EF1F0033D277 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +31,7 @@
 		C73B55F03194669449C97A97 /* Pods_proyectoFinal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proyectoFinal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F958ECEFC07EB75BBD72EA87 /* Pods-proyectoFinal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proyectoFinal.debug.xcconfig"; path = "Target Support Files/Pods-proyectoFinal/Pods-proyectoFinal.debug.xcconfig"; sourceTree = "<group>"; };
 		FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerQuestionary.swift; sourceTree = "<group>"; };
-		FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionTableViewCell.swift; sourceTree = "<group>"; };
-		FB30A0792357C39D00AF3FA7 /* question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = question.swift; sourceTree = "<group>"; };
+		FBE9DC0D2358DCB500339B7C /* OverallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,15 +88,11 @@
 				ACE05C982335EF1F0033D277 /* AppDelegate.swift */,
 				ACE05C9A2335EF1F0033D277 /* ViewController.swift */,
 				ACE05C9C2335EF1F0033D277 /* Main.storyboard */,
-				AC73B1332352B48900C66F84 /* ViewControllerResultados.swift */,
+				FBE9DC0D2358DCB500339B7C /* OverallsViewController.swift */,
 				FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */,
 				ACE05C9F2335EF200033D277 /* Assets.xcassets */,
 				ACE05CA12335EF200033D277 /* LaunchScreen.storyboard */,
 				ACE05CA42335EF200033D277 /* Info.plist */,
-				FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */,
-				8EEFEBF32351EE5800472CD8 /* ViewControllerIndice.swift */,
-				8EEFEBF52351F01B00472CD8 /* TableViewCellTarea.swift */,
-				FB30A0792357C39D00AF3FA7 /* question.swift */,
 			);
 			path = proyectoFinal;
 			sourceTree = "<group>";
@@ -226,13 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE05C9B2335EF1F0033D277 /* ViewController.swift in Sources */,
-				FB30A07A2357C39D00AF3FA7 /* question.swift in Sources */,
-				8EEFEBF62351F01B00472CD8 /* TableViewCellTarea.swift in Sources */,
-				FB309F93234FA3BD00AF3FA7 /* questionTableViewCell.swift in Sources */,
-				AC73B1342352B48900C66F84 /* ViewControllerResultados.swift in Sources */,
 				FB29B113234E489800210FF1 /* ViewControllerQuestionary.swift in Sources */,
-				8EEFEBF42351EE5800472CD8 /* ViewControllerIndice.swift in Sources */,
 				ACE05C992335EF1F0033D277 /* AppDelegate.swift in Sources */,
+				FBE9DC0E2358DCB500339B7C /* OverallsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

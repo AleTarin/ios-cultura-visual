@@ -19,7 +19,7 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     var timeLeft: Int!
     // Array de preguntas
     // Cada pregunta es un dictionary
-    var preguntas: [[String:Any]] = []
+    var preguntas: [Question] = []
     
     override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
@@ -45,7 +45,7 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
                       let data = document.data()
                      
                      // Save data from all questions
-                      self.preguntas.append(data)
+                self.preguntas.append(Question(dictionary: data))
                   }
               }
             self.timeLeft = self.preguntas.count * 60
@@ -58,35 +58,20 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "question", for: indexPath) as! questionTableViewCell
         let pregunta = preguntas[indexPath.row]
-        if var respuestas = pregunta["answers"]{
-            respuestas = respuestas as! [[String:Any]]
-            if let res1 = (respuestas as! [Any?])[0]{
-                let text = (res1 as! [String:Any])["content"] as! String
-                cell.btnRes1?.setTitle(text, for: .normal)
-            }
-            if let res2 = (respuestas as! [Any?])[1]{
-                let text = (res2 as! [String:Any])["content"] as! String
-                cell.btnRes2?.setTitle(text, for: .normal)
-            }
-            if let res3 = (respuestas as! [Any?])[2]{
-                let text = (res3 as! [String:Any])["content"] as! String
-                cell.btnRes3?.setTitle(text, for: .normal)
-            }
-            if let res4 = (respuestas as! [Any?])[3]{
-                let text = (res4 as! [String:Any])["content"] as! String
-                cell.btnRes4?.setTitle(text, for: .normal)            }
-        }
-        
-        if let image = pregunta["image"]{
-            cell.imgQuestion?.load(url: URL(string: image as! String)!)
-        } else {
-           cell.imgQuestion?.image = UIImage(named: "monumento")
-        }
+        let p1 = pregunta.answers![0]
+        cell.btnRes1?.setTitle(p1.content, for: .normal)
+        let p2 = pregunta.answers![1]
+        cell.btnRes2?.setTitle(p2.content, for: .normal)
+        let p3 = pregunta.answers![2]
+        cell.btnRes3?.setTitle(p3.content, for: .normal)
+        let p4 = pregunta.answers![3]
+        cell.btnRes4?.setTitle(p4.content, for: .normal)
+        cell.imgQuestion?.load(url: URL(string: pregunta.image ?? "" )!)
         
         cell.lbTitle?.text = "Question \(indexPath.row+1):"
-        cell.lbContent?.text = pregunta["content"] as? String
+        cell.lbContent?.text = pregunta.content
 
-        cell.setAnswer(answer: pregunta)
+        cell.setAnswer(answer: pregunta.answers!)
         cell.delegate = self
         return cell
     }
@@ -156,36 +141,34 @@ extension UIImageView {
 }
 
 extension ViewControllerQuestionary: botonTap {
-    func tapButton1(title: [String : Any]){
-        
+    func tapButton1(title: Answer) {
+        print(title.content)
         //Recibir respuesta seleccionada
-        //Verificar si seleccionada es correcta o incorrecta
-        //Mandar a un array para la sección de resultados
-        
+         //Verificar si seleccionada es correcta o incorrecta
+         //Mandar a un array para la sección de resultados
     }
     
-    func tapButton2(title: [String : Any]){
+    func tapButton2(title: Answer) {
+        print(title.content)
+
+               //Recibir respuesta seleccionada
+         //Verificar si seleccionada es correcta o incorrecta
+         //Mandar a un array para la sección de resultados
+    }
+    
+    func tapButton3(title: Answer) {
+        print(title.content)
 
         //Recibir respuesta seleccionada
-        //Verificar si seleccionada es correcta o incorrecta
-        //Mandar a un array para la sección de resultados
-        
+         //Verificar si seleccionada es correcta o incorrecta
+         //Mandar a un array para la sección de resultados
     }
     
-    func tapButton3(title: [String : Any]){
-        
-        //Recibir respuesta seleccionada
-        //Verificar si seleccionada es correcta o incorrecta
-        //Mandar a un array para la sección de resultados
-        
+    func tapButton4(title: Answer) {
+        print(title.content)
+
+       //Recibir respuesta seleccionada
+         //Verificar si seleccionada es correcta o incorrecta
+         //Mandar a un array para la sección de resultados
     }
-    
-    func tapButton4(title: [String : Any]){
-        
-        //Recibir respuesta seleccionada
-        //Verificar si seleccionada es correcta o incorrecta
-        //Mandar a un array para la sección de resultados
-        
-    }
-    
 }

@@ -19,6 +19,7 @@
 		ACE05CA32335EF200033D277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE05CA12335EF200033D277 /* LaunchScreen.storyboard */; };
 		FB29B113234E489800210FF1 /* ViewControllerQuestionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */; };
 		FB309F93234FA3BD00AF3FA7 /* questionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */; };
+		FB30A07A2357C39D00AF3FA7 /* question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB30A0792357C39D00AF3FA7 /* question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F958ECEFC07EB75BBD72EA87 /* Pods-proyectoFinal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proyectoFinal.debug.xcconfig"; path = "Target Support Files/Pods-proyectoFinal/Pods-proyectoFinal.debug.xcconfig"; sourceTree = "<group>"; };
 		FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerQuestionary.swift; sourceTree = "<group>"; };
 		FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionTableViewCell.swift; sourceTree = "<group>"; };
+		FB30A0792357C39D00AF3FA7 /* question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */,
 				8EEFEBF32351EE5800472CD8 /* ViewControllerIndice.swift */,
 				8EEFEBF52351F01B00472CD8 /* TableViewCellTarea.swift */,
+				FB30A0792357C39D00AF3FA7 /* question.swift */,
 			);
 			path = proyectoFinal;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE05C9B2335EF1F0033D277 /* ViewController.swift in Sources */,
+				FB30A07A2357C39D00AF3FA7 /* question.swift in Sources */,
 				8EEFEBF62351F01B00472CD8 /* TableViewCellTarea.swift in Sources */,
 				FB309F93234FA3BD00AF3FA7 /* questionTableViewCell.swift in Sources */,
 				AC73B1342352B48900C66F84 /* ViewControllerResultados.swift in Sources */,

@@ -74,6 +74,10 @@ class ViewControllerIndice: UIViewController, UITableViewDelegate, UITableViewDa
         return 50
     }
     
+    @IBAction func btHome(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

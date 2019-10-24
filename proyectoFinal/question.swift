@@ -59,3 +59,5 @@ class Answer: NSObject {
       self.isImage = dictionary["isImage"] as? Bool ?? false
     }
 }
+
+

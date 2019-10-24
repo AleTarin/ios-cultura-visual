@@ -107,11 +107,13 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.10.0)
+  - UICircularProgressRing (6.3.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/Firestore
+  - UICircularProgressRing
 
 SPEC REPOS:
   trunk:
@@ -133,6 +135,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - UICircularProgressRing
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
@@ -153,7 +156,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
+  UICircularProgressRing: e700fb0505328e88ee53c4ed92bee6d1a5b8bbe3
 
-PODFILE CHECKSUM: d3e83fc273b8404150ad2e59ebef89ecf291e0ae
+PODFILE CHECKSUM: 2b4f1dad7bf001f566d1495eb73d99ad2424b7f4
 
 COCOAPODS: 1.8.3

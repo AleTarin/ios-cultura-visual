@@ -20,6 +20,9 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     // Array de preguntas
     // Cada pregunta es un dictionary
     var preguntas: [Question] = []
+    var saveAnswers: [answerChosen] = []
+    //var index : Int!
+    var backColors: [backgroundColors] = []
     
     override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
@@ -71,8 +74,17 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         cell.lbTitle?.text = "Question \(indexPath.row+1):"
         cell.lbContent?.text = pregunta.content
 
-        cell.setAnswer(answer: pregunta.answers!)
+        cell.setAnswer(answer: pregunta.answers!, question: pregunta)
         cell.delegate = self
+        
+        saveAnswers.append(answerChosen(chosen: 0, correct: 0, pregunta: pregunta.content!))
+        backColors.append(backgroundColors(btn1: UIColor.lightGray, btn2: UIColor.lightGray, btn3: UIColor.lightGray, btn4: UIColor.lightGray))
+        cell.btnRes1.backgroundColor = backColors[indexPath.row].btn1
+        cell.btnRes2.backgroundColor = backColors[indexPath.row].btn2
+        cell.btnRes3.backgroundColor = backColors[indexPath.row].btn3
+        cell.btnRes4.backgroundColor = backColors[indexPath.row].btn4
+
+        
         return cell
     }
     
@@ -114,15 +126,77 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func finalizar(_ sender: UIButton) {
+        var ind = 0
+        for ans in saveAnswers {
+            print("Chosen: ", ans.chosen)
+            print("Correct: ", ans.correct)
+            print("Pregunta: ", ans.pregunta)
+            
+            if ans.chosen == ans.correct {
+                let color = UIColor.green
+                if ans.chosen == 0 {
+                    backColors[ind].btn1 = color
+                }
+                if ans.chosen == 1 {
+                    backColors[ind].btn2 = color
+                }
+                if ans.chosen == 2 {
+                    backColors[ind].btn3 = color
+                }
+                if ans.chosen == 3 {
+                    backColors[ind].btn4 = color
+                }
+            }
+            else {
+                let correct = UIColor.green
+                let wrong = UIColor.red
+                if ans.chosen == 0 {
+                    backColors[ind].btn1 = wrong
+                }
+                if ans.chosen == 1 {
+                    backColors[ind].btn2 = wrong
+                }
+                if ans.chosen == 2 {
+                    backColors[ind].btn3 = wrong
+                }
+                if ans.chosen == 3 {
+                    backColors[ind].btn4 = wrong
+                }
+                
+                if ans.correct == 0 {
+                    backColors[ind].btn1 = correct
+                }
+                if ans.correct == 1 {
+                    backColors[ind].btn2 = correct
+                }
+                if ans.correct == 2 {
+                    backColors[ind].btn3 = correct
+                }
+                if ans.correct == 3 {
+                    backColors[ind].btn4 = correct
+                }
+                
+            }
+            
+            ind += 1
+        }
+        
+        self.tvQuestionario.reloadData()
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewResultados = segue.destination as! ViewControllerResultados
+        viewResultados.answers = saveAnswers
+    }
+    
+    
 
 }
 
@@ -141,31 +215,71 @@ extension UIImageView {
 }
 
 extension ViewControllerQuestionary: botonTap {
-    func tapButton1(title: Answer) {
-        print(title.content)
+    func tapButton1(title: Answer, question: String, corr: Int) {
+        //print(title.content)
+        //print(question)
+        
+        var currentIndex = 0
+        for ans in saveAnswers {
+            if ans.pregunta == question {
+                let answer = answerChosen(chosen: 0, correct: corr, pregunta: question)
+                saveAnswers[currentIndex] = answer
+            }
+            currentIndex += 1
+        }
+        
+        
+        //saveAnswers.append(answerChosen(chosen: 0, correct: corr, pregunta: question))
         //Recibir respuesta seleccionada
          //Verificar si seleccionada es correcta o incorrecta
          //Mandar a un array para la sección de resultados
     }
     
-    func tapButton2(title: Answer) {
-        print(title.content)
-
+    func tapButton2(title: Answer, question: String, corr: Int) {
+        //print(title.content)
+        //print(question)
+        var currentIndex = 0
+        for ans in saveAnswers {
+            if ans.pregunta == question {
+                let answer = answerChosen(chosen: 1, correct: corr, pregunta: question)
+                saveAnswers[currentIndex] = answer
+            }
+            currentIndex += 1
+        }
                //Recibir respuesta seleccionada
          //Verificar si seleccionada es correcta o incorrecta
          //Mandar a un array para la sección de resultados
     }
     
-    func tapButton3(title: Answer) {
-        print(title.content)
+    func tapButton3(title: Answer, question: String, corr: Int) {
+        //print(title.content)
+        //print(question)
+        var currentIndex = 0
+        for ans in saveAnswers {
+            if ans.pregunta == question {
+                let answer = answerChosen(chosen: 2, correct: corr, pregunta: question)
+                saveAnswers[currentIndex] = answer
+            }
+            currentIndex += 1
+        }
 
         //Recibir respuesta seleccionada
          //Verificar si seleccionada es correcta o incorrecta
          //Mandar a un array para la sección de resultados
     }
     
-    func tapButton4(title: Answer) {
-        print(title.content)
+    func tapButton4(title: Answer, question: String, corr: Int) {
+        //print(title.content)
+        //print(question)
+        var currentIndex = 0
+        for ans in saveAnswers {
+            if ans.pregunta == question {
+                let answer = answerChosen(chosen: 3, correct: corr, pregunta: question)
+                saveAnswers[currentIndex] = answer
+            }
+            currentIndex += 1
+        }
+
 
        //Recibir respuesta seleccionada
          //Verificar si seleccionada es correcta o incorrecta

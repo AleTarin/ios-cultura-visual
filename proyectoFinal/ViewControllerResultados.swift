@@ -10,10 +10,31 @@ import UIKit
 
 class ViewControllerResultados: UIViewController {
 
+    var answers: [answerChosen] = []
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var lbCorrectas: UILabel!
+    @IBOutlet weak var lbIncorrectas: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        let correctas = viewProgress()
+        let total = answers.count
+        progressBar.setProgress((Float(correctas)/Float(total)), animated: true)
+        lbCorrectas.text = String(correctas)
+        lbIncorrectas.text = String(total - correctas)
+    }
+    
+    func viewProgress() -> Int {
+        var correct = 0
+        for ans in answers {
+            if ans.chosen == ans.correct {
+                correct += 1
+            }
+        }
+        
+        return correct
     }
     
 

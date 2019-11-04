@@ -9,10 +9,10 @@
 import UIKit
 
 protocol botonTap {
-    func tapButton1(title: Answer)
-    func tapButton2(title: Answer)
-    func tapButton3(title: Answer)
-    func tapButton4(title: Answer)
+    func tapButton1(title: Answer, question: String, corr: Int)
+    func tapButton2(title: Answer, question: String, corr: Int)
+    func tapButton3(title: Answer, question: String, corr: Int)
+    func tapButton4(title: Answer, question: String, corr: Int)
 }
 
 class questionTableViewCell: UITableViewCell {
@@ -26,6 +26,7 @@ class questionTableViewCell: UITableViewCell {
     
     var delegate:  botonTap?
     var answerChosen: [Answer]!
+    var questionChosen: Question!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,8 +34,9 @@ class questionTableViewCell: UITableViewCell {
         
     }
     
-    func setAnswer(answer: [Answer]){
+    func setAnswer(answer: [Answer], question: Question){
         answerChosen = answer
+        questionChosen = question
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,7 +47,7 @@ class questionTableViewCell: UITableViewCell {
     
     
     @IBAction func btn1Tap(_ sender: UIButton) {
-        delegate?.tapButton1(title: answerChosen![0])
+        delegate?.tapButton1(title: answerChosen![0], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.darkGray
         btnRes2.backgroundColor = UIColor.lightGray
         btnRes3.backgroundColor = UIColor.lightGray
@@ -53,7 +55,7 @@ class questionTableViewCell: UITableViewCell {
     }
     
     @IBAction func btn2Tap(_ sender: UIButton) {
-        delegate?.tapButton2(title: answerChosen![1])
+        delegate?.tapButton2(title: answerChosen![1], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.lightGray
         btnRes2.backgroundColor = UIColor.darkGray
         btnRes3.backgroundColor = UIColor.lightGray
@@ -61,7 +63,7 @@ class questionTableViewCell: UITableViewCell {
     }
     
     @IBAction func btn3Tap(_ sender: UIButton) {
-        delegate?.tapButton3(title: answerChosen![2])
+        delegate?.tapButton3(title: answerChosen![2], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.lightGray
         btnRes2.backgroundColor = UIColor.lightGray
         btnRes3.backgroundColor = UIColor.darkGray
@@ -69,7 +71,7 @@ class questionTableViewCell: UITableViewCell {
     }
     
     @IBAction func btn4Tap(_ sender: UIButton) {
-        delegate?.tapButton4(title: answerChosen![3])
+        delegate?.tapButton4(title: answerChosen![3], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.lightGray
         btnRes2.backgroundColor = UIColor.lightGray
         btnRes3.backgroundColor = UIColor.lightGray

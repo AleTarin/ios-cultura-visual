@@ -60,4 +60,29 @@ class Answer: NSObject {
     }
 }
 
+class answerChosen: NSObject {
+    let chosen: Int
+    let correct: Int
+    let pregunta: String
+    
+    init(chosen: Int, correct: Int, pregunta: String) {
+        self.chosen = chosen
+        self.correct = correct
+        self.pregunta = pregunta
+    }
+}
+
+class backgroundColors: NSObject {
+    var btn1: UIColor
+    var btn2: UIColor
+    var btn3: UIColor
+    var btn4: UIColor
+    
+    init(btn1: UIColor, btn2: UIColor, btn3: UIColor, btn4: UIColor){
+        self.btn1 = btn1
+        self.btn2 = btn2
+        self.btn3 = btn3
+        self.btn4 = btn4
+    }
+}
 

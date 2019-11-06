@@ -19,6 +19,7 @@
 		ACE05CA32335EF200033D277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE05CA12335EF200033D277 /* LaunchScreen.storyboard */; };
 		FB21D1BD235F962C0044C0AD /* homework.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB21D1BC235F962C0044C0AD /* homework.swift */; };
 		FB21D1C0235F9BF20044C0AD /* ViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB21D1BF235F9BF20044C0AD /* ViewControllerLogin.swift */; };
+		FB1A808923624A6E00E640F8 /* ViewControllerEstadisticas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1A808823624A6E00E640F8 /* ViewControllerEstadisticas.swift */; };
 		FB29B113234E489800210FF1 /* ViewControllerQuestionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */; };
 		FB309F93234FA3BD00AF3FA7 /* questionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */; };
 		FB30A07A2357C39D00AF3FA7 /* question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB30A0792357C39D00AF3FA7 /* question.swift */; };
@@ -42,6 +43,7 @@
 		FB21D1BC235F962C0044C0AD /* homework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homework.swift; sourceTree = "<group>"; };
 		FB21D1BE235F99170044C0AD /* proyectoFinal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = proyectoFinal.entitlements; sourceTree = "<group>"; };
 		FB21D1BF235F9BF20044C0AD /* ViewControllerLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLogin.swift; sourceTree = "<group>"; };
+		FB1A808823624A6E00E640F8 /* ViewControllerEstadisticas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEstadisticas.swift; sourceTree = "<group>"; };
 		FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerQuestionary.swift; sourceTree = "<group>"; };
 		FB309F92234FA3BD00AF3FA7 /* questionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionTableViewCell.swift; sourceTree = "<group>"; };
 		FB30A0792357C39D00AF3FA7 /* question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = question.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				ACE05C982335EF1F0033D277 /* AppDelegate.swift */,
 				ACE05C9A2335EF1F0033D277 /* ViewController.swift */,
 				ACE05C9C2335EF1F0033D277 /* Main.storyboard */,
+				FB1A808823624A6E00E640F8 /* ViewControllerEstadisticas.swift */,
 				AC73B1332352B48900C66F84 /* ViewControllerResultados.swift */,
 				FB29B112234E489800210FF1 /* ViewControllerQuestionary.swift */,
 				ACE05C9F2335EF200033D277 /* Assets.xcassets */,
@@ -241,6 +244,7 @@
 				FB309F93234FA3BD00AF3FA7 /* questionTableViewCell.swift in Sources */,
 				AC73B1342352B48900C66F84 /* ViewControllerResultados.swift in Sources */,
 				FB29B113234E489800210FF1 /* ViewControllerQuestionary.swift in Sources */,
+				FB1A808923624A6E00E640F8 /* ViewControllerEstadisticas.swift in Sources */,
 				8EEFEBF42351EE5800472CD8 /* ViewControllerIndice.swift in Sources */,
 				ACE05C992335EF1F0033D277 /* AppDelegate.swift in Sources */,
 			);

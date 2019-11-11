@@ -14,12 +14,9 @@ class ViewControllerIndice: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tvIndice: UITableView!
     
-    
-    var db: Firestore!
-    
     // Array de preguntas
     // Cada pregunta es un dictionary
-    var tareas: [[String:Any]] = []
+    var temas: [[String:Any]] = []
     
     override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
@@ -29,41 +26,43 @@ class ViewControllerIndice: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tvIndice.delegate = self
         tvIndice.dataSource = self
-        // Initialize firebase db
-        db = Firestore.firestore()
         loadData()
-        // Do any additional setup after loading the view.
     }
     
     func loadData(){
          // Get Data from firebase
-          db.collection("homeworks").getDocuments() { (querySnapshot, err) in
-              if let err = err {
-                  print("Error getting documents: \(err)")
-              } else {
-                  for document in querySnapshot!.documents {
-                      let data = document.data()
-                     
-                     // Save data from all questions
-                      self.tareas.append(data)
-                  }
-              }
-            
+        usuarioTemaService.getData(user: userService.email, completionHandler: { temas in
+            self.temas = temas
             self.tvIndice.reloadData()
-            
-          }
+        })
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tarea", for: indexPath) as! TableViewCellTarea
-        let tarea = tareas[indexPath.row]
-        cell.lbContent?.text = tarea["content"] as? String
+        let tema = self.temas[indexPath.row]
+        let corrects = tema["correct_answers"] as! Float
+        let incorrects = tema["wrong_answers"] as! Float
+        
+        var progress: Float = 0
+        let total = corrects + incorrects
+        if total != 0 {
+            progress =  corrects / total
+        }
+        
+        cell.lbContent?.text = tema["topic_name"] as? String
+        if tema["topic_hasImage"] as! Bool {
+            let url =  URL(string: tema["topic_image"] as! String )
+            cell.lvImage.load(url: url!)
+        }
+        
+        cell.pbProgreso.setProgress(progress, animated: true)
+        cell.tema = tema
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tareas.count
+        return self.temas.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,22 +70,20 @@ class ViewControllerIndice: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 80
     }
     
     @IBAction func btHome(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let cell = sender as? TableViewCellTarea {
+            let view = segue.destination as! ViewControllerTema
+            view.tema = cell.tema
+        }
+
     }
-    */
 
 
 }

@@ -13,15 +13,19 @@ import FirebaseFirestore
 class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tvQuestionario: UITableView!
-    var db: Firestore!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    // segue
+    var tema = [String: Any]()
+    
+    // Timer
     var timer:Timer?
     var timeLeft: Int!
+    
     // Array de preguntas
     // Cada pregunta es un dictionary
     var preguntas: [Question] = []
     var saveAnswers: [answerChosen] = []
-    //var index : Int!
     var backColors: [backgroundColors] = []
     
     override func didReceiveMemoryWarning() {
@@ -32,60 +36,60 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tvQuestionario.delegate = self
         tvQuestionario.dataSource = self
-        // Initialize firebase db
-        db = Firestore.firestore()
-        loadData()
-        // Do any additional setup after loading the view.
+        self.loadData()
     }
     
     func loadData(){
          // Get Data from firebase
-          db.collection("preguntas").getDocuments() { (querySnapshot, err) in
-              if let err = err {
-                  print("Error getting documents: \(err)")
-              } else {
-                  for document in querySnapshot!.documents {
-                      let data = document.data()
-                     
-                     // Save data from all questions
-                self.preguntas.append(Question(dictionary: data))
-                  }
-              }
-            self.timeLeft = self.preguntas.count * 60
-            self.tvQuestionario.reloadData()
-            self.setupTimer()
-            
-          }
+        if self.tema["topic_id"] as? String != "all" {
+            questionService.getQuestions(topic: self.tema["topic_id"] as? String, completionHandler: { questions in
+                self.preguntas = questions
+                self.timeLeft = self.preguntas.count * 60
+                self.tvQuestionario.reloadData()
+                self.setupTimer()
+            })
+        } else {
+            questionService.getAllQuestions(topic: nil, completionHandler: { questions in
+                self.preguntas = questions
+                self.timeLeft = self.preguntas.count * 60
+                self.tvQuestionario.reloadData()
+                self.setupTimer()
+            })
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "question", for: indexPath) as! questionTableViewCell
         let pregunta = preguntas[indexPath.row]
-        let p1 = pregunta.answers![0]
-        cell.btnRes1?.setTitle(p1.content, for: .normal)
-        let p2 = pregunta.answers![1]
-        cell.btnRes2?.setTitle(p2.content, for: .normal)
-        let p3 = pregunta.answers![2]
-        cell.btnRes3?.setTitle(p3.content, for: .normal)
-        let p4 = pregunta.answers![3]
-        cell.btnRes4?.setTitle(p4.content, for: .normal)
-        cell.imgQuestion?.load(url: URL(string: pregunta.image ?? "" )!)
         
+        // Set answer buttons
+        self.setQuestionBtn(question: pregunta, btn: cell.btnRes1, index: 0)
+        self.setQuestionBtn(question: pregunta, btn: cell.btnRes2, index: 1)
+        self.setQuestionBtn(question: pregunta, btn: cell.btnRes3, index: 2)
+        self.setQuestionBtn(question: pregunta, btn: cell.btnRes4, index: 3)
+        
+        // Set answer description
+        cell.imgQuestion?.load(url: URL(string: pregunta.image ?? "" )!)
         cell.lbTitle?.text = "Question \(indexPath.row+1):"
         cell.lbContent?.text = pregunta.content
-
         cell.setAnswer(answer: pregunta.answers!, question: pregunta)
         cell.delegate = self
         
         saveAnswers.append(answerChosen(chosen: 0, correct: 0, pregunta: pregunta.content!))
         backColors.append(backgroundColors(btn1: UIColor.lightGray, btn2: UIColor.lightGray, btn3: UIColor.lightGray, btn4: UIColor.lightGray))
-        cell.btnRes1.backgroundColor = backColors[indexPath.row].btn1
-        cell.btnRes2.backgroundColor = backColors[indexPath.row].btn2
-        cell.btnRes3.backgroundColor = backColors[indexPath.row].btn3
-        cell.btnRes4.backgroundColor = backColors[indexPath.row].btn4
 
-        
         return cell
+    }
+    
+    
+    func setQuestionBtn (question: Question, btn: UIButton, index: Int){
+        let p1 = question.answers![index]
+        if p1.isImage {
+            btn.load(url: URL(string: p1.content )!)
+        } else {
+            btn.setTitle(p1.content, for: .normal)
+        }
+        btn.backgroundColor = UIColor.lightGray
     }
     
     
@@ -114,31 +118,18 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
             timer?.invalidate()
             timer = nil
             performSegue(withIdentifier: "resultadosSegue", sender: self)
-        } else {
-            // do something
         }
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
-        let seconds: Int = totalSeconds % 60
+        let seconds: Int = totalSeconds % 6//0
         let minutes: Int = (totalSeconds / 60) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
-    
     @IBAction func finalizar(_ sender: UIButton) {
         var ind = 0
         for ans in saveAnswers {
-            print("Chosen: ", ans.chosen)
-            print("Correct: ", ans.correct)
-            print("Pregunta: ", ans.pregunta)
-            
             if ans.chosen == ans.correct {
                 let color = UIColor.green
                 if ans.chosen == 0 {
@@ -193,11 +184,11 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewResultados = segue.destination as! ViewControllerResultados
+        viewResultados.tema = tema
         viewResultados.answers = saveAnswers
+        viewResultados.timeLeft = timeLeft
     }
     
-    
-
 }
 
 extension UIImageView {
@@ -214,75 +205,46 @@ extension UIImageView {
     }
 }
 
+extension UIButton {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.setImage(image, for: .normal)
+                    }
+                }
+            }
+        }
+    }
+}
+
 extension ViewControllerQuestionary: botonTap {
     func tapButton1(title: Answer, question: String, corr: Int) {
-        //print(title.content)
-        //print(question)
-        
-        var currentIndex = 0
-        for ans in saveAnswers {
-            if ans.pregunta == question {
-                let answer = answerChosen(chosen: 0, correct: corr, pregunta: question)
-                saveAnswers[currentIndex] = answer
-            }
-            currentIndex += 1
-        }
-        
-        
-        //saveAnswers.append(answerChosen(chosen: 0, correct: corr, pregunta: question))
-        //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
+        tapBtn(title: title, question: question, corr: corr, chosen: 0)
     }
     
     func tapButton2(title: Answer, question: String, corr: Int) {
-        //print(title.content)
-        //print(question)
-        var currentIndex = 0
-        for ans in saveAnswers {
-            if ans.pregunta == question {
-                let answer = answerChosen(chosen: 1, correct: corr, pregunta: question)
-                saveAnswers[currentIndex] = answer
-            }
-            currentIndex += 1
-        }
-               //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
+        tapBtn(title: title, question: question, corr: corr, chosen: 1)
     }
     
     func tapButton3(title: Answer, question: String, corr: Int) {
-        //print(title.content)
-        //print(question)
-        var currentIndex = 0
-        for ans in saveAnswers {
-            if ans.pregunta == question {
-                let answer = answerChosen(chosen: 2, correct: corr, pregunta: question)
-                saveAnswers[currentIndex] = answer
-            }
-            currentIndex += 1
-        }
-
-        //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
+        tapBtn(title: title, question: question, corr: corr, chosen: 2)
     }
     
     func tapButton4(title: Answer, question: String, corr: Int) {
-        //print(title.content)
-        //print(question)
+        tapBtn(title: title, question: question, corr: corr, chosen: 3)
+    }
+    
+    func tapBtn(title: Answer, question: String, corr: Int, chosen: Int) {
         var currentIndex = 0
         for ans in saveAnswers {
             if ans.pregunta == question {
-                let answer = answerChosen(chosen: 3, correct: corr, pregunta: question)
+                let answer = answerChosen(chosen: chosen, correct: corr, pregunta: question)
                 saveAnswers[currentIndex] = answer
             }
             currentIndex += 1
         }
-
-
-       //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
     }
+    
 }

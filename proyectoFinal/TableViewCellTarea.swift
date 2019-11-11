@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewCellTarea: UITableViewCell {
     @IBOutlet weak var lbContent: UILabel!
+    var tema = [String:Any]()
+    @IBOutlet weak var lvImage: UIImageView!
+    @IBOutlet weak var pbProgreso: UIProgressView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

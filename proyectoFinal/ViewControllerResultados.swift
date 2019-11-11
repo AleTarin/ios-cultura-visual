@@ -32,8 +32,6 @@ class ViewControllerResultados: UIViewController {
         lbCorrectas.text = String(correctas)
         lbIncorrectas.text = String(incorrectas)
         
-        
-        
         usuarioTemaService.updateData(user: userService.email, topic_id: tema["topic_id"] as! String, updatedData: [
             "correct_answers": correctas,
             "wrong_answers": incorrectas,

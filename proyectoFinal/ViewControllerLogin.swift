@@ -47,7 +47,6 @@ class ViewControllerLogin: UIViewController {
         }
     }
     @IBAction func onRegister(_ sender: Any) {
-        print(self.temas)
         let alert = UIAlertController(title: "Nuevo Usuario", message: "Introduce tus datos por favor", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Guardar", style: .default) { action in
             let emailField = alert.textFields![0]
@@ -59,6 +58,11 @@ class ViewControllerLogin: UIViewController {
                     userService.createUser(email: email, temas: self.temas )
                     self.tfEmail.text = email
                     self.tfPassword.text = passwordField.text!
+                } else {
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
         }

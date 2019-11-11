@@ -40,7 +40,22 @@ class ViewControllerIndice: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tarea", for: indexPath) as! TableViewCellTarea
         let tema = self.temas[indexPath.row]
+        let corrects = tema["correct_answers"] as! Float
+        let incorrects = tema["wrong_answers"] as! Float
+        
+        var progress: Float = 0
+        let total = corrects + incorrects
+        if total != 0 {
+            progress =  corrects / total
+        }
+        
         cell.lbContent?.text = tema["topic_name"] as? String
+        if tema["topic_hasImage"] as! Bool {
+            let url =  URL(string: tema["topic_image"] as! String )
+            cell.lvImage.load(url: url!)
+        }
+        
+        cell.pbProgreso.setProgress(progress, animated: true)
         cell.tema = tema
         return cell
     }
@@ -55,7 +70,7 @@ class ViewControllerIndice: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 80
     }
     
     @IBAction func btHome(_ sender: UIBarButtonItem) {

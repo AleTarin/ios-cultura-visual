@@ -71,12 +71,19 @@ class questionServ {
     
     func getQuestions(topic: String?, completionHandler: @escaping ([Question]) -> Void) {
         var preguntas: [Question] = []
-        var collectionRef = dbRef
-        if topic != nil { // If topic is not nil, filter by that topic
-            collectionRef = dbRef.whereField("topic", isEqualTo: topic!) as! CollectionReference
+        dbRef.whereField("topic", isEqualTo: topic!).getDocuments() { (querySnapshot, err) in
+            for document in querySnapshot!.documents {
+                let data = document.data()
+                preguntas.append(Question(dictionary: data))
+            }
+            self.questions = preguntas
+            completionHandler(self.questions)
         }
-        
-        collectionRef.getDocuments() { (querySnapshot, err) in
+    }
+    
+    func getAllQuestions(topic: String?, completionHandler: @escaping ([Question]) -> Void) {
+        var preguntas: [Question] = []
+        dbRef.getDocuments() { (querySnapshot, err) in
             for document in querySnapshot!.documents {
                 let data = document.data()
                 preguntas.append(Question(dictionary: data))
@@ -105,6 +112,8 @@ class userServ {
                     "questions_number": 0,
                     "topic_id": t["id"] as! String,
                     "topic_name": t["content"] as! String,
+                    "topic_image": t["image"] as! String,
+                    "topic_hasImage": t["hasImage"] as! Bool,
                     "user": email,
                     "timestamp": ""
                 ]
@@ -120,7 +129,6 @@ class userServ {
     
     func setEmail(email:String) {
         self.email = email
-
     }
 
 }

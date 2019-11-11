@@ -10,7 +10,11 @@ import UIKit
 
 class ViewControllerResultados: UIViewController {
 
+    // From segue
     var answers: [answerChosen] = []
+    var tema = [String: Any]()
+    var timeLeft = 0
+    
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var lbCorrectas: UILabel!
     @IBOutlet weak var lbIncorrectas: UILabel!
@@ -21,9 +25,23 @@ class ViewControllerResultados: UIViewController {
         // Do any additional setup after loading the view.
         let correctas = viewProgress()
         let total = answers.count
-        progressBar.setProgress((Float(correctas)/Float(total)), animated: true)
+        let incorrectas = total - correctas
+        let progress = Float(correctas)/Float(total)
+        
+        progressBar.setProgress(progress, animated: true)
         lbCorrectas.text = String(correctas)
-        lbIncorrectas.text = String(total - correctas)
+        lbIncorrectas.text = String(incorrectas)
+        
+        
+        
+        usuarioTemaService.updateData(user: userService.email, topic_id: tema["topic_id"] as! String, updatedData: [
+            "correct_answers": correctas,
+            "wrong_answers": incorrectas,
+            "questions_number": total,
+            "complete": progress == 1,
+            "timestamp": Date().description,
+            "score": correctas * 1000 - incorrectas * 1000 + timeLeft * 10
+        ])
     }
     
     func viewProgress() -> Int {

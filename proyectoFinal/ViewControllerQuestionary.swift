@@ -13,15 +13,19 @@ import FirebaseFirestore
 class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tvQuestionario: UITableView!
-    var db: Firestore!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    // segue
+    var tema = [String: Any]()
+    
+    // Timer
     var timer:Timer?
     var timeLeft: Int!
+    
     // Array de preguntas
     // Cada pregunta es un dictionary
     var preguntas: [Question] = []
     var saveAnswers: [answerChosen] = []
-    //var index : Int!
     var backColors: [backgroundColors] = []
     
     override func didReceiveMemoryWarning() {
@@ -32,30 +36,17 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tvQuestionario.delegate = self
         tvQuestionario.dataSource = self
-        // Initialize firebase db
-        db = Firestore.firestore()
-        loadData()
-        // Do any additional setup after loading the view.
+        self.loadData()
     }
     
     func loadData(){
          // Get Data from firebase
-          db.collection("preguntas").getDocuments() { (querySnapshot, err) in
-              if let err = err {
-                  print("Error getting documents: \(err)")
-              } else {
-                  for document in querySnapshot!.documents {
-                      let data = document.data()
-                     
-                     // Save data from all questions
-                self.preguntas.append(Question(dictionary: data))
-                  }
-              }
+        questionService.getQuestions(topic: self.tema["topic_id"] as? String, completionHandler: { questions in
+            self.preguntas = questions
             self.timeLeft = self.preguntas.count * 60
             self.tvQuestionario.reloadData()
             self.setupTimer()
-            
-          }
+        })
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -114,13 +105,11 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
             timer?.invalidate()
             timer = nil
             performSegue(withIdentifier: "resultadosSegue", sender: self)
-        } else {
-            // do something
         }
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
-        let seconds: Int = totalSeconds % 60
+        let seconds: Int = totalSeconds % 6//0
         let minutes: Int = (totalSeconds / 60) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
@@ -193,7 +182,9 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewResultados = segue.destination as! ViewControllerResultados
+        viewResultados.tema = tema
         viewResultados.answers = saveAnswers
+        viewResultados.timeLeft = timeLeft
     }
     
     

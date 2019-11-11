@@ -13,9 +13,14 @@ import UICircularProgressRing
 class ViewControllerEstadisticas: UIViewController {
 
     @IBOutlet weak var otProgress: UICircularProgressRing!
-    
+    var tareas: [[String:Any]] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usuarioTemaService.getData(user: userService.email, completionHandler: { temas in
+            self.tareas = temas
+        })
         
         otProgress.style = .ontop
         otProgress.backgroundColor = self.view.backgroundColor

@@ -10,6 +10,7 @@ import UIKit
 
 class TableViewCellTarea: UITableViewCell {
     @IBOutlet weak var lbContent: UILabel!
+    var tema = [String:Any]()
     
     override func awakeFromNib() {
         super.awakeFromNib()

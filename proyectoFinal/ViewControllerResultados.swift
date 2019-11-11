@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UICircularProgressRing
 
 class ViewControllerResultados: UIViewController {
 
@@ -14,6 +15,7 @@ class ViewControllerResultados: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var lbCorrectas: UILabel!
     @IBOutlet weak var lbIncorrectas: UILabel!
+    @IBOutlet weak var otProgress: UICircularProgressRing!
     
     
     override func viewDidLoad() {
@@ -24,18 +26,37 @@ class ViewControllerResultados: UIViewController {
         progressBar.setProgress((Float(correctas)/Float(total)), animated: true)
         lbCorrectas.text = String(correctas)
         lbIncorrectas.text = String(total - correctas)
+        
+        /*otProgress.style = .ontop
+        otProgress.backgroundColor = self.view.backgroundColor
+        otProgress.maxValue = 100
+        otProgress.outerRingColor = .gray
+        otProgress.innerRingColor = .yellow
+        otProgress.outerRingWidth = 20
+        otProgress.innerRingWidth = 13*/
+        
+        //otProgress.startProgress(to: CGFloat((correctas/total)*100), duration: 4.0)
     }
     
     func viewProgress() -> Int {
         var correct = 0
+        print(answers.count)
         for ans in answers {
             if ans.chosen == ans.correct {
                 correct += 1
             }
+            print(ans.chosen)
+            print(ans.correct)
         }
         
         return correct
     }
+    
+    /*override func viewDidAppear(_ animated: Bool) {
+        let prog = (viewProgress() / answers.count) * 100
+        
+        otProgress.startProgress(to: CGFloat(prog), duration: 4.0)
+    }*/
     
 
     /*

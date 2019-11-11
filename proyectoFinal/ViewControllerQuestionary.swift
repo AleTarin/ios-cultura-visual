@@ -35,7 +35,6 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         // Initialize firebase db
         db = Firestore.firestore()
         loadData()
-        // Do any additional setup after loading the view.
     }
     
     func loadData(){
@@ -48,7 +47,11 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
                       let data = document.data()
                      
                      // Save data from all questions
-                self.preguntas.append(Question(dictionary: data))
+                    
+                    let pregunta = Question(dictionary: data)
+                self.preguntas.append(pregunta)
+                    self.saveAnswers.append(answerChosen(chosen: -1, correct: -2, pregunta: pregunta.content!))
+                    self.backColors.append(backgroundColors(btn1: UIColor.lightGray, btn2: UIColor.lightGray, btn3: UIColor.lightGray, btn4: UIColor.lightGray))
                   }
               }
             self.timeLeft = self.preguntas.count * 60
@@ -77,8 +80,10 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         cell.setAnswer(answer: pregunta.answers!, question: pregunta)
         cell.delegate = self
         
-        saveAnswers.append(answerChosen(chosen: 0, correct: 0, pregunta: pregunta.content!))
+        /*
+        saveAnswers.append(answerChosen(chosen: -1, correct: -2, pregunta: pregunta.content!))
         backColors.append(backgroundColors(btn1: UIColor.lightGray, btn2: UIColor.lightGray, btn3: UIColor.lightGray, btn4: UIColor.lightGray))
+        */
         cell.btnRes1.backgroundColor = backColors[indexPath.row].btn1
         cell.btnRes2.backgroundColor = backColors[indexPath.row].btn2
         cell.btnRes3.backgroundColor = backColors[indexPath.row].btn3
@@ -135,23 +140,32 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     @IBAction func finalizar(_ sender: UIButton) {
         var ind = 0
         for ans in saveAnswers {
-            print("Chosen: ", ans.chosen)
-            print("Correct: ", ans.correct)
-            print("Pregunta: ", ans.pregunta)
             
             if ans.chosen == ans.correct {
                 let color = UIColor.green
                 if ans.chosen == 0 {
                     backColors[ind].btn1 = color
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 1 {
                     backColors[ind].btn2 = color
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 2 {
                     backColors[ind].btn3 = color
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 3 {
                     backColors[ind].btn4 = color
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
                 }
             }
             else {
@@ -159,15 +173,27 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
                 let wrong = UIColor.red
                 if ans.chosen == 0 {
                     backColors[ind].btn1 = wrong
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 1 {
                     backColors[ind].btn2 = wrong
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 2 {
                     backColors[ind].btn3 = wrong
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 3 {
                     backColors[ind].btn4 = wrong
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn1 = UIColor.lightGray
                 }
                 
                 if ans.correct == 0 {
@@ -187,7 +213,6 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
             
             ind += 1
         }
-        
         self.tvQuestionario.reloadData()
     }
     
@@ -216,9 +241,6 @@ extension UIImageView {
 
 extension ViewControllerQuestionary: botonTap {
     func tapButton1(title: Answer, question: String, corr: Int) {
-        //print(title.content)
-        //print(question)
-        
         var currentIndex = 0
         for ans in saveAnswers {
             if ans.pregunta == question {
@@ -227,17 +249,9 @@ extension ViewControllerQuestionary: botonTap {
             }
             currentIndex += 1
         }
-        
-        
-        //saveAnswers.append(answerChosen(chosen: 0, correct: corr, pregunta: question))
-        //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
     }
     
     func tapButton2(title: Answer, question: String, corr: Int) {
-        //print(title.content)
-        //print(question)
         var currentIndex = 0
         for ans in saveAnswers {
             if ans.pregunta == question {
@@ -246,14 +260,9 @@ extension ViewControllerQuestionary: botonTap {
             }
             currentIndex += 1
         }
-               //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
     }
     
     func tapButton3(title: Answer, question: String, corr: Int) {
-        //print(title.content)
-        //print(question)
         var currentIndex = 0
         for ans in saveAnswers {
             if ans.pregunta == question {
@@ -262,10 +271,6 @@ extension ViewControllerQuestionary: botonTap {
             }
             currentIndex += 1
         }
-
-        //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
     }
     
     func tapButton4(title: Answer, question: String, corr: Int) {
@@ -279,10 +284,18 @@ extension ViewControllerQuestionary: botonTap {
             }
             currentIndex += 1
         }
-
-
-       //Recibir respuesta seleccionada
-         //Verificar si seleccionada es correcta o incorrecta
-         //Mandar a un array para la sección de resultados
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("YA CARGO")
+        /*if saveAnswers.count == 0 {
+            //deshabilitar el escoger respuestas
+            //Quitar el boton finalizar
+            //Parar el timer
+        
+        }*/
+ 
+        //for cell in backColor
+        
     }
 }

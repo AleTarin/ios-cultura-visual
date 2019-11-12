@@ -36,7 +36,7 @@ class ViewControllerEstadisticas: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        otProgress.startProgress(to: 68, duration: 4.0)
+        otProgress.startProgress(to: 75, duration: 4.0)
 
     }
     

@@ -75,8 +75,13 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         cell.setAnswer(answer: pregunta.answers!, question: pregunta)
         cell.delegate = self
         
-        saveAnswers.append(answerChosen(chosen: 0, correct: 0, pregunta: pregunta.content!))
+        saveAnswers.append(answerChosen(chosen: -1, correct: -2, pregunta: pregunta.content!))
         backColors.append(backgroundColors(btn1: UIColor.lightGray, btn2: UIColor.lightGray, btn3: UIColor.lightGray, btn4: UIColor.lightGray))
+        
+        cell.btnRes1.backgroundColor = backColors[indexPath.row].btn1
+        cell.btnRes2.backgroundColor = backColors[indexPath.row].btn2
+        cell.btnRes3.backgroundColor = backColors[indexPath.row].btn3
+        cell.btnRes4.backgroundColor = backColors[indexPath.row].btn4
 
         return cell
     }
@@ -134,15 +139,27 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
                 let color = UIColor.green
                 if ans.chosen == 0 {
                     backColors[ind].btn1 = color
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 1 {
                     backColors[ind].btn2 = color
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 2 {
                     backColors[ind].btn3 = color
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 3 {
                     backColors[ind].btn4 = color
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
                 }
             }
             else {
@@ -150,15 +167,27 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
                 let wrong = UIColor.red
                 if ans.chosen == 0 {
                     backColors[ind].btn1 = wrong
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 1 {
                     backColors[ind].btn2 = wrong
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 2 {
                     backColors[ind].btn3 = wrong
+                    backColors[ind].btn1 = UIColor.lightGray
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn4 = UIColor.lightGray
                 }
                 if ans.chosen == 3 {
                     backColors[ind].btn4 = wrong
+                    backColors[ind].btn2 = UIColor.lightGray
+                    backColors[ind].btn3 = UIColor.lightGray
+                    backColors[ind].btn1 = UIColor.lightGray
                 }
                 
                 if ans.correct == 0 {
@@ -178,7 +207,6 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
             
             ind += 1
         }
-        
         self.tvQuestionario.reloadData()
     }
     
@@ -247,4 +275,17 @@ extension ViewControllerQuestionary: botonTap {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("YA CARGO")
+        /*if saveAnswers.count == 0 {
+            //deshabilitar el escoger respuestas
+            //Quitar el boton finalizar
+            //Parar el timer
+        
+        }*/
+ 
+        //for cell in backColor
+        
+    }
 }
+

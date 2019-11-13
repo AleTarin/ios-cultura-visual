@@ -53,13 +53,38 @@ class usuarioTemaServ {
     }
     
     func updateData( user: String, topic_id: String, updatedData: [String: Any] ) {
-        dbRef.whereField("topic_id", isEqualTo: topic_id).whereField("user", isEqualTo: user).getDocuments(completion: {
+        dbRef
+            .whereField("topic_id", isEqualTo: topic_id)
+            .whereField("user", isEqualTo: user).getDocuments(completion: {
             (querySnapshot, err) in
             for document in querySnapshot!.documents {
                 let uid = document.documentID
                 self.dbRef.document(uid).updateData(updatedData)
             }
         })
+    }
+    
+    
+    func getRanking( topic_id: String,  completionHandler: @escaping ([[String: Any]]) -> Void) {
+        var temas = [[String: Any]]()
+        dbRef
+            .whereField("topic_id", isEqualTo: topic_id)
+            .order(by: "score", descending: true)
+            .limit(to: 10)
+            .getDocuments() { (querySnapshot, err) in
+                if err == nil && querySnapshot != nil {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        temas.append(data)
+                    }
+                } else {
+                    print (err.debugDescription)
+                    print (err!.localizedDescription)
+                }
+
+            self.temas = temas
+            completionHandler(self.temas)
+        }
     }
 }
 

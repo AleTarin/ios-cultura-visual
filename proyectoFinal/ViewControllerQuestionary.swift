@@ -44,18 +44,25 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         if self.tema["topic_id"] as? String != "all" {
             questionService.getQuestions(topic: self.tema["topic_id"] as? String, completionHandler: { questions in
                 self.preguntas = questions
-                self.timeLeft = self.preguntas.count * 60
-                self.tvQuestionario.reloadData()
-                self.setupTimer()
+                self.setDefaults()
             })
         } else {
             questionService.getAllQuestions(topic: nil, completionHandler: { questions in
                 self.preguntas = questions
-                self.timeLeft = self.preguntas.count * 60
-                self.tvQuestionario.reloadData()
-                self.setupTimer()
+                self.setDefaults()
             })
         }
+    }
+    
+    func setDefaults () {
+        self.timeLeft = self.preguntas.count * 60
+        self.tvQuestionario.reloadData()
+        self.setupTimer()
+        for pregunta in self.preguntas {
+            saveAnswers.append(answerChosen(chosen: -1, correct: -2, pregunta: pregunta.content!))
+            backColors.append(backgroundColors(btn1: UIColor.lightGray, btn2: UIColor.lightGray, btn3: UIColor.lightGray, btn4: UIColor.lightGray))
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,9 +81,6 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         cell.lbContent?.text = pregunta.content
         cell.setAnswer(answer: pregunta.answers!, question: pregunta)
         cell.delegate = self
-        
-        saveAnswers.append(answerChosen(chosen: -1, correct: -2, pregunta: pregunta.content!))
-        backColors.append(backgroundColors(btn1: UIColor.lightGray, btn2: UIColor.lightGray, btn3: UIColor.lightGray, btn4: UIColor.lightGray))
         
         cell.btnRes1.backgroundColor = backColors[indexPath.row].btn1
         cell.btnRes2.backgroundColor = backColors[indexPath.row].btn2
@@ -276,7 +280,7 @@ extension ViewControllerQuestionary: botonTap {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("YA CARGO")
+        // print("YA CARGO")
         /*if saveAnswers.count == 0 {
             //deshabilitar el escoger respuestas
             //Quitar el boton finalizar

@@ -89,3 +89,11 @@ class ViewControllerLogin: UIViewController {
     */
 
 }
+
+
+func alertError (error: Error, innerSelf: AnyObject) {
+    let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    alertController.addAction(defaultAction)
+    innerSelf.present(alertController, animated: true, completion: nil)
+}

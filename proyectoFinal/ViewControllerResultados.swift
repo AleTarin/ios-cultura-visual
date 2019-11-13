@@ -20,6 +20,7 @@ class ViewControllerResultados: UIViewController {
     @IBOutlet weak var lbCorrectas: UILabel!
     @IBOutlet weak var lbIncorrectas: UILabel!
     @IBOutlet weak var otProgress: UICircularProgressRing!
+    @IBOutlet weak var lbPuntaje: UILabel!
     
     
     override func viewDidLoad() {
@@ -29,19 +30,25 @@ class ViewControllerResultados: UIViewController {
         let total = answers.count
         let incorrectas = total - correctas
         let progress = Float(correctas)/Float(total)
+        let score = correctas * 1000 + timeLeft
+        let isBetter = score > (tema["score"] as! Int)
         
         progressBar.setProgress(progress, animated: true)
         lbCorrectas.text = String(correctas)
         lbIncorrectas.text = String(incorrectas)
+        lbPuntaje.text = "Puntos: \(String(score))"
         
-        usuarioTemaService.updateData(user: userService.email, topic_id: tema["topic_id"] as! String, updatedData: [
-            "correct_answers": correctas,
-            "wrong_answers": incorrectas,
-            "questions_number": total,
-            "complete": progress == 1,
-            "timestamp": Date().description,
-            "score": correctas * 1000 - incorrectas * 1000 + timeLeft * 10
-        ])
+        // Only update if score was bigger
+        if isBetter {
+            usuarioTemaService.updateData(user: userService.email, topic_id: tema["topic_id"] as! String, updatedData: [
+                "correct_answers": correctas,
+                "wrong_answers": incorrectas,
+                "questions_number": total,
+                "complete": progress == 1,
+                "timestamp": Date().description,
+                "score": score
+            ])
+        }
 
         /*otProgress.style = .ontop
         otProgress.backgroundColor = self.view.backgroundColor
@@ -56,18 +63,21 @@ class ViewControllerResultados: UIViewController {
     
     func viewProgress() -> Int {
         var correct = 0
-        print(answers.count)
+        // print(answers.count)
         for ans in answers {
             if ans.chosen == ans.correct {
                 correct += 1
             }
-            print(ans.chosen)
-            print(ans.correct)
+            // print(ans.chosen)
+            // print(ans.correct)
         }
         
         return correct
     }
     
+    @IBAction func moveBack(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
+    }
     /*override func viewDidAppear(_ animated: Bool) {
         let prog = (viewProgress() / answers.count) * 100
         

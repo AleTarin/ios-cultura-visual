@@ -26,8 +26,11 @@ class ViewControllerIndice: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tvIndice.delegate = self
         tvIndice.dataSource = self
-        loadData()
     }
+    
+   override func viewDidAppear(_ animated: Bool) {
+        loadData()
+   }
     
     func loadData(){
          // Get Data from firebase

@@ -9,11 +9,14 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
+//import QuartzCore
+
 
 class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tvQuestionario: UITableView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var btnFinalizar: UIButton!
     
     // segue
     var tema = [String: Any]()
@@ -21,6 +24,7 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     // Timer
     var timer:Timer?
     var timeLeft: Int!
+    var timerAct: Bool = false
     
     // Array de preguntas
     // Cada pregunta es un dictionary
@@ -77,15 +81,33 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         
         // Set answer description
         cell.imgQuestion?.load(url: URL(string: pregunta.image ?? "" )!)
-        cell.lbTitle?.text = "Question \(indexPath.row+1):"
+        //cell.lbTitle?.text = "" //"Question \(indexPath.row+1):"
         cell.lbContent?.text = pregunta.content
         cell.setAnswer(answer: pregunta.answers!, question: pregunta)
         cell.delegate = self
         
         cell.btnRes1.backgroundColor = backColors[indexPath.row].btn1
+        cell.btnRes1.layer.borderWidth = 5.0
+        cell.btnRes1.layer.borderColor = backColors[indexPath.row].btn1.cgColor
+        
         cell.btnRes2.backgroundColor = backColors[indexPath.row].btn2
+        cell.btnRes2.layer.borderWidth = 5.0
+        cell.btnRes2.layer.borderColor = backColors[indexPath.row].btn2.cgColor
+        
         cell.btnRes3.backgroundColor = backColors[indexPath.row].btn3
+        cell.btnRes3.layer.borderWidth = 5.0
+        cell.btnRes3.layer.borderColor = backColors[indexPath.row].btn3.cgColor
+        
         cell.btnRes4.backgroundColor = backColors[indexPath.row].btn4
+        cell.btnRes4.layer.borderWidth = 5.0
+        cell.btnRes4.layer.borderColor = backColors[indexPath.row].btn4.cgColor
+        
+        if(timerAct == true){
+            cell.btnRes1.isEnabled = false
+            cell.btnRes2.isEnabled = false
+            cell.btnRes3.isEnabled = false
+            cell.btnRes4.isEnabled = false
+        }
 
         return cell
     }
@@ -111,7 +133,7 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450
+        return 400
     }
     
     func setupTimer() {
@@ -138,6 +160,10 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func finalizar(_ sender: UIButton) {
         var ind = 0
+        timerAct = true
+        btnFinalizar.setTitle("Resultados", for: .normal)
+        timer?.invalidate()
+        timeLabel.text = "Time's Up!"
         for ans in saveAnswers {
             if ans.chosen == ans.correct {
                 let color = UIColor.green
@@ -214,11 +240,17 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         self.tvQuestionario.reloadData()
     }
     
+    /*func invalida(boton: Bool, timer: Bool) {
+        btnAct = boton
+        timerAct = timer
+    }*/
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewResultados = segue.destination as! ViewControllerResultados
         viewResultados.tema = tema
         viewResultados.answers = saveAnswers
         viewResultados.timeLeft = timeLeft
+        //viewResultados.delegado = self
     }
     
 }
@@ -252,12 +284,16 @@ extension UIButton {
 }
 
 extension ViewControllerQuestionary: botonTap {
+    
+    
     func tapButton1(title: Answer, question: String, corr: Int) {
         tapBtn(title: title, question: question, corr: corr, chosen: 0)
+        
     }
     
     func tapButton2(title: Answer, question: String, corr: Int) {
         tapBtn(title: title, question: question, corr: corr, chosen: 1)
+        
     }
     
     func tapButton3(title: Answer, question: String, corr: Int) {
@@ -280,6 +316,7 @@ extension ViewControllerQuestionary: botonTap {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print(timerAct)
         // print("YA CARGO")
         /*if saveAnswers.count == 0 {
             //deshabilitar el escoger respuestas

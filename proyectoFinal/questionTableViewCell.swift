@@ -45,33 +45,49 @@ class questionTableViewCell: UITableViewCell {
     @IBAction func btn1Tap(_ sender: UIButton) {
         delegate?.tapButton1(title: answerChosen![0], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.darkGray
+        btnRes1.layer.borderColor = UIColor.darkGray.cgColor
         btnRes2.backgroundColor = UIColor.lightGray
+        btnRes2.layer.borderColor = UIColor.lightGray.cgColor
         btnRes3.backgroundColor = UIColor.lightGray
+        btnRes3.layer.borderColor = UIColor.lightGray.cgColor
         btnRes4.backgroundColor = UIColor.lightGray
+        btnRes4.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     @IBAction func btn2Tap(_ sender: UIButton) {
         delegate?.tapButton2(title: answerChosen![1], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.lightGray
+        btnRes1.layer.borderColor = UIColor.lightGray.cgColor
         btnRes2.backgroundColor = UIColor.darkGray
+        btnRes2.layer.borderColor = UIColor.darkGray.cgColor
         btnRes3.backgroundColor = UIColor.lightGray
+        btnRes3.layer.borderColor = UIColor.lightGray.cgColor
         btnRes4.backgroundColor = UIColor.lightGray
+        btnRes4.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     @IBAction func btn3Tap(_ sender: UIButton) {
         delegate?.tapButton3(title: answerChosen![2], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.lightGray
+        btnRes1.layer.borderColor = UIColor.lightGray.cgColor
         btnRes2.backgroundColor = UIColor.lightGray
+        btnRes2.layer.borderColor = UIColor.lightGray.cgColor
         btnRes3.backgroundColor = UIColor.darkGray
+        btnRes3.layer.borderColor = UIColor.darkGray.cgColor
         btnRes4.backgroundColor = UIColor.lightGray
+        btnRes4.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     @IBAction func btn4Tap(_ sender: UIButton) {
         delegate?.tapButton4(title: answerChosen![3], question: questionChosen.content!, corr:  questionChosen.correctAnswer!)
         btnRes1.backgroundColor = UIColor.lightGray
+        btnRes1.layer.borderColor = UIColor.lightGray.cgColor
         btnRes2.backgroundColor = UIColor.lightGray
+        btnRes2.layer.borderColor = UIColor.lightGray.cgColor
         btnRes3.backgroundColor = UIColor.lightGray
+        btnRes3.layer.borderColor = UIColor.lightGray.cgColor
         btnRes4.backgroundColor = UIColor.darkGray
+        btnRes4.layer.borderColor = UIColor.darkGray.cgColor
     }
     
 

@@ -9,7 +9,15 @@
 import UIKit
 import UICircularProgressRing
 
+/*
+protocol protocoloInvalidar {
+    func invalida(boton: Bool, timer: Bool) -> Void
+}
+*/
+
 class ViewControllerResultados: UIViewController {
+    
+    //var delegado: protocoloInvalidar!
 
     // From segue
     var answers: [answerChosen] = []
@@ -50,15 +58,15 @@ class ViewControllerResultados: UIViewController {
             ])
         }
 
-        /*otProgress.style = .ontop
+        otProgress.style = .ontop
         otProgress.backgroundColor = self.view.backgroundColor
         otProgress.maxValue = 100
         otProgress.outerRingColor = .gray
         otProgress.innerRingColor = .yellow
         otProgress.outerRingWidth = 20
-        otProgress.innerRingWidth = 13*/
+        otProgress.innerRingWidth = 13
         
-        //otProgress.startProgress(to: CGFloat((correctas/total)*100), duration: 4.0)
+        
     }
     
     func viewProgress() -> Int {
@@ -74,15 +82,20 @@ class ViewControllerResultados: UIViewController {
         
         return correct
     }
-    
+        
     @IBAction func moveBack(_ sender: UIButton) {
+        
+        //delegado.invalida(boton: true, timer: true)
+        
         _ = navigationController?.popViewController(animated: true)
+        
+        
     }
-    /*override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         let prog = (viewProgress() / answers.count) * 100
         
         otProgress.startProgress(to: CGFloat(prog), duration: 4.0)
-    }*/
+    }
     
 
     /*

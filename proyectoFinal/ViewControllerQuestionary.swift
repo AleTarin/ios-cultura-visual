@@ -20,6 +20,8 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     
     // segue
     var tema = [String: Any]()
+    var viewControl: String = ""
+    
     
     // Timer
     var timer:Timer?
@@ -31,6 +33,7 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     var preguntas: [Question] = []
     var saveAnswers: [answerChosen] = []
     var backColors: [backgroundColors] = []
+
     
     override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
@@ -41,6 +44,9 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         tvQuestionario.delegate = self
         tvQuestionario.dataSource = self
         self.loadData()
+        
+        print("ViewcONTROL: ")
+        print(viewControl)
     }
     
     func loadData(){
@@ -239,11 +245,6 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         }
         self.tvQuestionario.reloadData()
     }
-    
-    /*func invalida(boton: Bool, timer: Bool) {
-        btnAct = boton
-        timerAct = timer
-    }*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewResultados = segue.destination as! ViewControllerResultados

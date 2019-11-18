@@ -11,4 +11,5 @@ target 'proyectoFinal' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'UICircularProgressRing'
+  pod 'Charts'
 end

@@ -44,9 +44,7 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         tvQuestionario.delegate = self
         tvQuestionario.dataSource = self
         self.loadData()
-        
-        print("ViewcONTROL: ")
-        print(viewControl)
+
     }
     
     func loadData(){
@@ -65,7 +63,7 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
     }
     
     func setDefaults () {
-        self.timeLeft = self.preguntas.count * 60
+        self.timeLeft = self.preguntas.count * 35
         self.tvQuestionario.reloadData()
         self.setupTimer()
         for pregunta in self.preguntas {
@@ -154,12 +152,13 @@ class ViewControllerQuestionary: UIViewController, UITableViewDelegate, UITableV
         if timeLeft <= 0 {
             timer?.invalidate()
             timer = nil
+            finalizar(btnFinalizar)
             performSegue(withIdentifier: "resultadosSegue", sender: self)
         }
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
-        let seconds: Int = totalSeconds % 6//0
+        let seconds: Int = totalSeconds % 60
         let minutes: Int = (totalSeconds / 60) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }

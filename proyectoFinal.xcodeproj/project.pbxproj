@@ -36,7 +36,7 @@
 		AC73B1332352B48900C66F84 /* ViewControllerResultados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResultados.swift; sourceTree = "<group>"; };
 		AC8D9A702381E4F600F524E7 /* ViewControllerAvances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAvances.swift; sourceTree = "<group>"; };
 		AC8D9A722382089700F524E7 /* CellAvances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAvances.swift; sourceTree = "<group>"; };
-		ACE05C952335EF1E0033D277 /* proyectoFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proyectoFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE05C952335EF1E0033D277 /* Cultara Visual y Sonora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cultara Visual y Sonora.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE05C982335EF1F0033D277 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE05C9A2335EF1F0033D277 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ACE05C9D2335EF1F0033D277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		ACE05C962335EF1E0033D277 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACE05C952335EF1E0033D277 /* proyectoFinal.app */,
+				ACE05C952335EF1E0033D277 /* Cultara Visual y Sonora.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,7 +151,7 @@
 			);
 			name = proyectoFinal;
 			productName = proyectoFinal;
-			productReference = ACE05C952335EF1E0033D277 /* proyectoFinal.app */;
+			productReference = ACE05C952335EF1E0033D277 /* Cultara Visual y Sonora.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -416,10 +416,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.cultura-visual";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.cultura-visual-y-sonora";
+				PRODUCT_NAME = "Cultara Visual y Sonora";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -435,10 +435,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.cultura-visual";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.cultura-visual-y-sonora";
+				PRODUCT_NAME = "Cultara Visual y Sonora";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

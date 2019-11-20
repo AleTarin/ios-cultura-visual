@@ -9,18 +9,21 @@
 import UIKit
 import UICircularProgressRing
 
-class ViewControllerResultados: UIViewController {
 
+class ViewControllerResultados: UIViewController {
+    
     // From segue
     var answers: [answerChosen] = []
     var tema = [String: Any]()
     var timeLeft = 0
+    var viewControl: String = ""
     
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var lbCorrectas: UILabel!
     @IBOutlet weak var lbIncorrectas: UILabel!
     @IBOutlet weak var otProgress: UICircularProgressRing!
     @IBOutlet weak var lbPuntaje: UILabel!
+    @IBOutlet weak var btnRespuestas: UIButton!
     
     
     override func viewDidLoad() {
@@ -32,11 +35,23 @@ class ViewControllerResultados: UIViewController {
         let progress = Float(correctas)/Float(total)
         let score = correctas * 1000 + timeLeft
         let isBetter = score > (tema["score"] as! Int)
+        let corrects = tema["correct_answers"] as! Int
+        let incorrects = tema["wrong_answers"] as! Int
+        let score1 = tema["score"] as! Int
         
         progressBar.setProgress(progress, animated: true)
-        lbCorrectas.text = String(correctas)
-        lbIncorrectas.text = String(incorrectas)
-        lbPuntaje.text = "Puntos: \(String(score))"
+        
+        if(viewControl == "resultados"){
+            lbCorrectas.text = String(corrects)
+            lbIncorrectas.text = String(incorrects)
+            lbPuntaje.text = "Puntos: \(String(score1))"
+            btnRespuestas.setTitle("Regresar", for: .normal)
+        }
+        else{
+            lbCorrectas.text = String(correctas)
+            lbIncorrectas.text = String(incorrectas)
+            lbPuntaje.text = "Puntos: \(String(score))"
+        }
         
         // Only update if score was bigger
         if isBetter {
@@ -50,39 +65,44 @@ class ViewControllerResultados: UIViewController {
             ])
         }
 
-        /*otProgress.style = .ontop
+        otProgress.style = .ontop
         otProgress.backgroundColor = self.view.backgroundColor
         otProgress.maxValue = 100
         otProgress.outerRingColor = .gray
         otProgress.innerRingColor = .yellow
         otProgress.outerRingWidth = 20
-        otProgress.innerRingWidth = 13*/
+        otProgress.innerRingWidth = 13
         
-        //otProgress.startProgress(to: CGFloat((correctas/total)*100), duration: 4.0)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let corrects = tema["correct_answers"] as! CGFloat
+        let prog = (CGFloat(viewProgress()) / CGFloat(answers.count)) * 100
+        let prog1 = (corrects / CGFloat(answers.count)) * 100
+        
+        if(viewControl == "resultados"){
+            otProgress.startProgress(to: CGFloat(prog1), duration: 4.0)
+        }
+        else{
+            otProgress.startProgress(to: CGFloat(prog), duration: 4.0)
+        }
     }
     
     func viewProgress() -> Int {
         var correct = 0
-        // print(answers.count)
         for ans in answers {
             if ans.chosen == ans.correct {
                 correct += 1
             }
-            // print(ans.chosen)
-            // print(ans.correct)
         }
         
         return correct
     }
-    
+        
     @IBAction func moveBack(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
     }
-    /*override func viewDidAppear(_ animated: Bool) {
-        let prog = (viewProgress() / answers.count) * 100
-        
-        otProgress.startProgress(to: CGFloat(prog), duration: 4.0)
-    }*/
     
 
     /*

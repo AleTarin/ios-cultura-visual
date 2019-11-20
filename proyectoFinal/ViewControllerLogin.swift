@@ -22,7 +22,14 @@ class ViewControllerLogin: UIViewController {
             result in
             self.temas = result
         })
+        /*let tap = UITapGestureRecognizer(target: self, action: #selector(quitaTeclado))
+        view.addGestureRecognizer(tap)*/
     }
+    
+    /*@IBAction func quitaTeclado(){
+        view.endEditing(true)
+    }*/
+
     
     @IBAction func onLogin(_ sender: Any) {
         //1.

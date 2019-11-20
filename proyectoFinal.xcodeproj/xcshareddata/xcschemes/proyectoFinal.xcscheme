@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ACE05C942335EF1E0033D277"
-               BuildableName = "proyectoFinal.app"
+               BuildableName = "Cultara Visual y Sonora.app"
                BlueprintName = "proyectoFinal"
                ReferencedContainer = "container:proyectoFinal.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ACE05C942335EF1E0033D277"
-            BuildableName = "proyectoFinal.app"
+            BuildableName = "Cultara Visual y Sonora.app"
             BlueprintName = "proyectoFinal"
             ReferencedContainer = "container:proyectoFinal.xcodeproj">
          </BuildableReference>
@@ -54,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ACE05C942335EF1E0033D277"
-            BuildableName = "proyectoFinal.app"
+            BuildableName = "Cultara Visual y Sonora.app"
             BlueprintName = "proyectoFinal"
             ReferencedContainer = "container:proyectoFinal.xcodeproj">
          </BuildableReference>
@@ -71,7 +71,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ACE05C942335EF1E0033D277"
-            BuildableName = "proyectoFinal.app"
+            BuildableName = "Cultara Visual y Sonora.app"
             BlueprintName = "proyectoFinal"
             ReferencedContainer = "container:proyectoFinal.xcodeproj">
          </BuildableReference>

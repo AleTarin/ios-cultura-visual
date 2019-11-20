@@ -62,8 +62,17 @@ class ViewControllerTema: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! ViewControllerQuestionary
-        view.tema = self.tema
+        if segue.identifier == "resultados" {
+            let viewResultados = segue.destination as! ViewControllerResultados
+            //do magic with your destination
+            viewResultados.tema = self.tema
+            viewResultados.viewControl = "resultados"
+        }
+        else {
+            let view = segue.destination as! ViewControllerQuestionary
+            view.tema = self.tema
+            view.viewControl = "cuestionario"
+        }
     }
 
 }

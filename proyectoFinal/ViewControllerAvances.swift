@@ -28,10 +28,7 @@ class ViewControllerAvances: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        usuarioTemaService.getData(user: userService.email, completionHandler: { temas in
-            self.tareas = temas
-            self.tvTareas.reloadData()
-        })
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,11 +36,17 @@ class ViewControllerAvances: UIViewController, UITableViewDelegate, UITableViewD
             self.tareas = temas
             self.tvTareas.reloadData()
         })*/
-        loadData()
-        setUpPieChart()
+        usuarioTemaService.getData(user: userService.email, completionHandler: { temas in
+            self.tareas = temas
+            self.tvTareas.reloadData()
+            self.loadData()
+            self.setUpPieChart()
+        })
     }
     
     func loadData() {
+        temas = []
+        correctas = []
         for tema in tareas {
             let nombre = (tema["topic_name"] as? String)!
             let corr = (tema["correct_answers"] as? Int)!

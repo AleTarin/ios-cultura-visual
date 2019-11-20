@@ -11,7 +11,7 @@
         <!--View Controller Login-->
         <scene sceneID="5RW-3l-kVl">
             <objects>
-                <viewController id="lwM-ph-ehM" customClass="ViewControllerLogin" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lwM-ph-ehM" customClass="ViewControllerLogin" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3uY-xY-JGK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Home" title="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" title="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +167,7 @@
         <!--Temas-->
         <scene sceneID="VYu-rX-2hF">
             <objects>
-                <viewController id="O5I-7Y-vMT" customClass="ViewControllerIndice" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="O5I-7Y-vMT" customClass="ViewControllerIndice" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2C6-32-7wy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,7 +177,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tarea" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tarea" rowHeight="80" id="D5V-jD-Bjk" customClass="TableViewCellTarea" customModule="proyectoFinal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tarea" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tarea" rowHeight="80" id="D5V-jD-Bjk" customClass="TableViewCellTarea" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D5V-jD-Bjk" id="5au-HC-cnZ">
@@ -232,7 +232,7 @@
         <!--View Controller Tema-->
         <scene sceneID="2AU-HB-JGa">
             <objects>
-                <viewController storyboardIdentifier="Index" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LLx-To-KVM" customClass="ViewControllerTema" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Index" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LLx-To-KVM" customClass="ViewControllerTema" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ywJ-xm-5zw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +256,7 @@
                                 <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Resultados"/>
                                 <connections>
-                                    <segue destination="FLV-9w-xLy" kind="push" identifier="resultados" id="GVB-DH-CS7"/>
+                                    <segue destination="FLV-9w-xLy" kind="show" identifier="resultados" id="GVB-DH-CS7"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ez2-jX-Ogx">
@@ -333,7 +333,7 @@
         <!--View Controller Questionary-->
         <scene sceneID="l0E-yx-Uel">
             <objects>
-                <viewController storyboardIdentifier="questionary" id="Z7k-2c-VS3" customClass="ViewControllerQuestionary" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="questionary" id="Z7k-2c-VS3" customClass="ViewControllerQuestionary" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eeU-vQ-3YA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,10 +372,10 @@
                                 <rect key="frame" x="0.0" y="119" width="375" height="448"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="question" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="question" rowHeight="534" id="uTy-nV-hYy" customClass="questionTableViewCell" customModule="proyectoFinal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="question" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="question" rowHeight="534" id="uTy-nV-hYy" customClass="questionTableViewCell" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="534"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uTy-nV-hYy" id="CaD-NJ-rn9" customClass="questionTableViewCell" customModule="proyectoFinal" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uTy-nV-hYy" id="CaD-NJ-rn9" customClass="questionTableViewCell" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -480,7 +480,7 @@
         <!--View Controller Resultados-->
         <scene sceneID="QNu-Td-bP4">
             <objects>
-                <viewController storyboardIdentifier="results" id="FLV-9w-xLy" customClass="ViewControllerResultados" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="results" id="FLV-9w-xLy" customClass="ViewControllerResultados" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YF5-OL-7UY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -587,12 +587,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k99-ca-lpC">
                                 <rect key="frame" x="67" y="165" width="241" height="317"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">Cultura Visual y Sonora ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Agosto Diciembre de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
+                                <string key="text">Cultura Visual y Sonora ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Agosto Diciembre de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
 Desarrolladores: 
 Alejandro De la Cruz Tarin
 Eli Moreira Olguín
 Layla Tame
-Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</mutableString>
+Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -603,14 +603,14 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
                                 <constraints>
                                     <constraint firstAttribute="height" constant="377" id="xEN-FW-yHa"/>
                                 </constraints>
-                                <mutableString key="text">Cultura Visual y Sonora ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Agosto Diciembre de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
+                                <string key="text">Cultura Visual y Sonora ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Agosto Diciembre de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
 
 Desarrolladores: 
 Alejandro De la Cruz Tarin
 Eli Moreira Olguín
 Layla Tame Chaya
 
-Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</mutableString>
+Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -653,116 +653,10 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
             </objects>
             <point key="canvasLocation" x="-218" y="-423"/>
         </scene>
-        <!--View Controller Estadisticas-->
-        <scene sceneID="Dnu-zT-MrE">
-            <objects>
-                <viewController id="4VV-LI-vOV" customClass="ViewControllerEstadisticas" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="P4W-5p-tB5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuestionarios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfM-LV-OuL">
-                                <rect key="frame" x="65" y="78" width="245" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="DfM-LV-OuL" secondAttribute="height" multiplier="245:59" id="mak-7c-MgA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ay3-Rx-AKz">
-                                <rect key="frame" x="1" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ay3-Rx-AKz" secondAttribute="height" multiplier="375:44" id="0Cl-jo-CwM"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Estadisticas" id="X1m-Se-uqZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Home" id="dPu-gx-n7U">
-                                            <connections>
-                                                <action selector="btHome:" destination="4VV-LI-vOV" id="jnW-Nt-DGc"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rsv-Th-Ksh" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
-                                <rect key="frame" x="43" y="145" width="289" height="157"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Rsv-Th-Ksh" secondAttribute="height" multiplier="289:157" id="pfd-1P-aLo"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8np-OO-ttg">
-                                <rect key="frame" x="43" y="348" width="289" height="284"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tema" rowHeight="69" id="VnM-p1-MCd">
-                                        <rect key="frame" x="0.0" y="28" width="289" height="69"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VnM-p1-MCd" id="Q9A-bG-2mn" customClass="TableViewCellEstad" customModule="proyectoFinal" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="289" height="69"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT5-z8-GJJ">
-                                                    <rect key="frame" x="224" y="15" width="23" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZj-z1-YBX">
-                                                    <rect key="frame" x="256" y="15" width="23" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEl-6z-fm7">
-                                                    <rect key="frame" x="249" y="15" width="8" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <connections>
-                                                <outlet property="lbCorrect" destination="gT5-z8-GJJ" id="ZpU-Tf-Nf6"/>
-                                                <outlet property="lbTotal" destination="YZj-z1-YBX" id="9c5-3t-nAO"/>
-                                            </connections>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93976709899999999" green="0.93976709899999999" blue="0.93976709899999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="DfM-LV-OuL" firstAttribute="top" secondItem="ay3-Rx-AKz" secondAttribute="bottom" constant="14" id="ApL-wj-3lR"/>
-                            <constraint firstItem="Rsv-Th-Ksh" firstAttribute="top" secondItem="DfM-LV-OuL" secondAttribute="bottom" constant="8" id="E4q-Ye-zs5"/>
-                            <constraint firstItem="uLH-IJ-SG8" firstAttribute="trailing" secondItem="Rsv-Th-Ksh" secondAttribute="trailing" constant="43" id="IvW-f1-U8x"/>
-                            <constraint firstItem="uLH-IJ-SG8" firstAttribute="trailing" secondItem="DfM-LV-OuL" secondAttribute="trailing" constant="65" id="Tew-1a-XgJ"/>
-                            <constraint firstItem="ay3-Rx-AKz" firstAttribute="leading" secondItem="uLH-IJ-SG8" secondAttribute="leading" constant="1" id="lE7-Fr-WXf"/>
-                            <constraint firstItem="DfM-LV-OuL" firstAttribute="leading" secondItem="uLH-IJ-SG8" secondAttribute="leading" constant="65" id="rF6-vV-sh3"/>
-                            <constraint firstItem="Rsv-Th-Ksh" firstAttribute="leading" secondItem="uLH-IJ-SG8" secondAttribute="leading" constant="43" id="s1i-jy-3wM"/>
-                            <constraint firstAttribute="trailing" secondItem="ay3-Rx-AKz" secondAttribute="trailing" constant="-1" id="xDv-cg-JIe"/>
-                            <constraint firstItem="ay3-Rx-AKz" firstAttribute="top" secondItem="uLH-IJ-SG8" secondAttribute="top" constant="20" id="xIP-VT-YUI"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="uLH-IJ-SG8"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="SJH-PM-EtK"/>
-                    <connections>
-                        <outlet property="otProgress" destination="Rsv-Th-Ksh" id="IyH-xc-fDB"/>
-                        <outlet property="tvTareas" destination="8np-OO-ttg" id="XmK-ZP-IuU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4zG-zr-TE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3273" y="-1266"/>
-        </scene>
         <!--View Controller Avances-->
         <scene sceneID="dBg-fm-wVw">
             <objects>
-                <viewController id="CLc-PX-egA" customClass="ViewControllerAvances" customModule="proyectoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CLc-PX-egA" customClass="ViewControllerAvances" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kko-zd-uhN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -790,9 +684,9 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TCp-IU-urt">
                                 <rect key="frame" x="34" y="351" width="309" height="296"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tema" rowHeight="65" id="Hz0-fM-dsD" customClass="CellAvances" customModule="proyectoFinal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tema" rowHeight="65" id="Hz0-fM-dsD" customClass="CellAvances" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="309" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hz0-fM-dsD" id="LYS-E6-Efd">
@@ -836,7 +730,9 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="ivImagen" destination="LUu-eO-gn6" id="CYC-rQ-itc"/>
                                             <outlet property="lbCorrectas" destination="fmF-XE-HsR" id="Npk-0K-svz"/>
@@ -864,112 +760,6 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXa-RU-oY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="700" y="-1146.4767616191905"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="KlY-gh-L9P">
-            <objects>
-                <viewController id="IAJ-T8-96e" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fUL-za-Sa7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Administra Cuestionarios" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-Al-Ri4">
-                                <rect key="frame" x="24" y="100" width="326" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Cr-r7-KoV">
-                                <rect key="frame" x="43" y="526" width="288" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enviar cuestionario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu0-rc-31f">
-                                        <rect key="frame" x="42" y="25" width="228" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.57992940989999997" green="0.1491628183" blue="0.021068194500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lio-dl-OsT">
-                                <rect key="frame" x="17" y="252" width="162" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crea Cuestionario" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE6-iB-3xW">
-                                        <rect key="frame" x="8" y="0.0" width="154" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.87133961915969849" green="0.76886254549026489" blue="0.28612217307090759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRb-Jt-bLX">
-                                <rect key="frame" x="17" y="391" width="162" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Agregar respuesta" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-IS-oT0">
-                                        <rect key="frame" x="0.0" y="0.0" width="162" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.82884546189999997" green="0.82884546189999997" blue="0.82884546189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7cY-Yb-B4s">
-                                <rect key="frame" x="196" y="391" width="162" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Añadir Imagen" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACZ-iN-hxB">
-                                        <rect key="frame" x="5" y="0.0" width="153" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.87133961915969849" green="0.76886254549026489" blue="0.28612217307090759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Pw-dN-hcs">
-                                <rect key="frame" x="197" y="252" width="162" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Agregar pregunta" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztb-LU-MT3">
-                                        <rect key="frame" x="0.0" y="0.0" width="154" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.82884546189999997" green="0.82884546189999997" blue="0.82884546189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bqa-xd-Mbr">
-                                <rect key="frame" x="253" y="-12" width="122" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maestro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-X7-Ije">
-                                <rect key="frame" x="0.0" y="20" width="150" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.57992940989999997" green="0.1491628183" blue="0.021068194500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93976709899999999" green="0.93976709899999999" blue="0.93976709899999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="iJM-7P-YDs"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rYZ-6X-WXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4089" y="-1266"/>
         </scene>
     </scenes>
     <resources>

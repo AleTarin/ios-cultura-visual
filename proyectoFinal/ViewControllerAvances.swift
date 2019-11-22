@@ -22,25 +22,16 @@ class ViewControllerAvances: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tvTareas.delegate = self
         tvTareas.dataSource = self
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
 
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
-        /*usuarioTemaService.getData(user: userService.email, completionHandler: { temas in
-            self.tareas = temas
-            self.tvTareas.reloadData()
-        })*/
         usuarioTemaService.getData(user: userService.email, completionHandler: { temas in
             self.tareas = temas
-            self.tvTareas.reloadData()
             self.loadData()
             self.setUpPieChart()
+            self.tvTareas.reloadData()
         })
     }
     
@@ -81,18 +72,17 @@ class ViewControllerAvances: UIViewController, UITableViewDelegate, UITableViewD
         var progreso: Float = 0
         let tot = corr + incorr
         if tot != 0 {
-            progreso = Float(corr / tot)
+            progreso = Float(corr) / Float(tot)
         }
         
-        cell.lbTema.text = tarea["topic_name"] as? String //nombres[indexPath.row]
+        cell.lbTema.text = tarea["topic_name"] as? String
         if tarea["topic_hasImage"] as! Bool {
             let url = URL(string: tarea["topic_image"] as! String)
             cell.ivImagen.load(url: url!)
         }
-        
-    cell.pvProgress.setProgress(progreso, animated: true)
-    cell.lbCorrectas.text = String(corr)
-    cell.lbTotal.text = String(tot)
+        cell.pvProgress.setProgress(progreso, animated: true)
+        cell.lbCorrectas.text = String(corr)
+        cell.lbTotal.text = tot > 0 ? String(tot) : "??"
         return cell
     }
     
@@ -118,15 +108,5 @@ class ViewControllerAvances: UIViewController, UITableViewDelegate, UITableViewD
         
         pieChart.data = PieChartData(dataSet: dataSet)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

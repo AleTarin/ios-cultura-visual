@@ -18,6 +18,12 @@ class ViewControllerResultados: UIViewController {
     var timeLeft = 0
     var viewControl: String = ""
     
+    var corrects = 0
+    var wrong = 0
+    var total = 0
+    var score = 0
+    var progress:Float = 0
+    
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var lbCorrectas: UILabel!
     @IBOutlet weak var lbIncorrectas: UILabel!
@@ -25,46 +31,9 @@ class ViewControllerResultados: UIViewController {
     @IBOutlet weak var lbPuntaje: UILabel!
     @IBOutlet weak var btnRespuestas: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let correctas = viewProgress()
-        let total = answers.count
-        let incorrectas = total - correctas
-        let progress = Float(correctas)/Float(total)
-        let score = correctas * 1000 + timeLeft
-        let isBetter = score > (tema["score"] as! Int)
-        let corrects = tema["correct_answers"] as! Int
-        let incorrects = tema["wrong_answers"] as! Int
-        let score1 = tema["score"] as! Int
-        
-        progressBar.setProgress(progress, animated: true)
-        
-        if(viewControl == "resultados"){
-            lbCorrectas.text = String(corrects)
-            lbIncorrectas.text = String(incorrects)
-            lbPuntaje.text = "Puntos: \(String(score1))"
-            btnRespuestas.setTitle("Regresar", for: .normal)
-        }
-        else{
-            lbCorrectas.text = String(correctas)
-            lbIncorrectas.text = String(incorrectas)
-            lbPuntaje.text = "Puntos: \(String(score))"
-        }
-        
-        // Only update if score was bigger
-        if isBetter {
-            usuarioTemaService.updateData(user: userService.email, topic_id: tema["topic_id"] as! String, updatedData: [
-                "correct_answers": correctas,
-                "wrong_answers": incorrectas,
-                "questions_number": total,
-                "complete": progress == 1,
-                "timestamp": Date().description,
-                "score": score
-            ])
-        }
-
+        loadData()
         otProgress.style = .ontop
         otProgress.backgroundColor = self.view.backgroundColor
         otProgress.maxValue = 100
@@ -72,21 +41,11 @@ class ViewControllerResultados: UIViewController {
         otProgress.innerRingColor = .yellow
         otProgress.outerRingWidth = 20
         otProgress.innerRingWidth = 13
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let corrects = tema["correct_answers"] as! CGFloat
-        let prog = (CGFloat(viewProgress()) / CGFloat(answers.count)) * 100
-        let prog1 = (corrects / CGFloat(answers.count)) * 100
-        
-        if(viewControl == "resultados"){
-            otProgress.startProgress(to: CGFloat(prog1), duration: 4.0)
-        }
-        else{
-            otProgress.startProgress(to: CGFloat(prog), duration: 4.0)
-        }
+        loadData()
+        otProgress.startProgress(to: CGFloat(progress*100), duration: 4.0)
     }
     
     func viewProgress() -> Int {
@@ -96,23 +55,47 @@ class ViewControllerResultados: UIViewController {
                 correct += 1
             }
         }
-        
         return correct
+    }
+    
+    func loadData() {
+        if(viewControl == "resultados"){
+            corrects = tema["correct_answers"] as! Int
+            wrong = tema["wrong_answers"] as! Int
+            total = corrects + wrong
+            progress = corrects != 0 && total != 0 ? Float(corrects)/Float(total) : 0
+            score = tema["score"] as! Int
+            btnRespuestas.setTitle("Regresar", for: .normal)
+        }
+        else{
+            corrects = viewProgress()
+            score = corrects * 1000 + timeLeft
+            total = answers.count
+            wrong = total - corrects
+            progress = corrects != 0 && total != 0 ? Float(corrects)/Float(total) : 0
+
+            let isBetter = score > (tema["score"] as! Int)
+            // Only update if score was bigger
+            if isBetter {
+                usuarioTemaService.updateData(user: userService.email, topic_id: tema["topic_id"] as! String, updatedData: [
+                    "correct_answers": corrects,
+                    "wrong_answers": wrong,
+                    "questions_number": total,
+                    "complete": progress == 1,
+                    "timestamp": Date().description,
+                    "score": score
+                ])
+            }
+        }
+        
+        lbCorrectas.text = String(corrects)
+        lbIncorrectas.text = String(wrong)
+        lbPuntaje.text = "Puntos: \(String(score))"
+        progressBar.setProgress(progress, animated: true)
     }
         
     @IBAction func moveBack(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

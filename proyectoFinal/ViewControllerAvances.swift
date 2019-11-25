@@ -102,6 +102,7 @@ class ViewControllerAvances: UIViewController, UITableViewDelegate, UITableViewD
         pieChart.rotationAngle = 0
         pieChart.rotationEnabled = false
         pieChart.isUserInteractionEnabled = false
+        pieChart.entryLabelColor = UIColor.black
         
         pieChart.legend.enabled = false
         

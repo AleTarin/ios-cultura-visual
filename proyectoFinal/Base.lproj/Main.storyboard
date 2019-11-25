@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrb-Pb-s35">
-                                <rect key="frame" x="14.5" y="141" width="346" height="385"/>
+                                <rect key="frame" x="14.5" y="161" width="346" height="345"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0is-6a-NAH">
                                         <rect key="frame" x="78.5" y="5" width="189" height="189"/>
@@ -38,6 +38,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="W4g-sw-KSs" secondAttribute="height" multiplier="137:17" id="8lT-5m-k9w"/>
                                         </constraints>
+
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -71,7 +72,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvN-wa-Psc">
-                                <rect key="frame" x="79" y="543" width="217" height="32"/>
+                                <rect key="frame" x="79" y="523" width="217" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="¿No tienes cuenta? Registrate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,6 +90,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="CvN-wa-Psc" firstAttribute="top" secondItem="xrb-Pb-s35" secondAttribute="bottom" constant="17" id="1eZ-iF-96U"/>
                             <constraint firstItem="xrb-Pb-s35" firstAttribute="centerX" secondItem="3uY-xY-JGK" secondAttribute="centerX" id="Fgb-Wk-7HP"/>
@@ -100,6 +102,9 @@
                             <constraint firstItem="Gw6-Km-LVX" firstAttribute="centerX" secondItem="CqA-qv-Gdt" secondAttribute="centerX" id="slj-2F-krD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CqA-qv-Gdt"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VU0-Bt-2Kt" appends="YES" id="N0V-O7-Icm"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="tfEmail" destination="a2b-vQ-Mkc" id="zTc-AS-dbb"/>
@@ -107,6 +112,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8UK-gU-Mp1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VU0-Bt-2Kt">
+                    <connections>
+                        <action selector="quitaTeclado" destination="lwM-ph-ehM" id="iQv-KA-Gfg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1151.2" y="-1146.4767616191905"/>
         </scene>
@@ -131,7 +141,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vY1-aZ-0Wl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="227"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vY1-aZ-0Wl" secondAttribute="height" multiplier="375:227" id="v6z-Ey-Mrf"/>
                                 </constraints>
@@ -187,7 +197,7 @@
             <objects>
                 <viewController id="O5I-7Y-vMT" customClass="ViewControllerIndice" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2C6-32-7wy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ACk-ea-GLK">
@@ -199,7 +209,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D5V-jD-Bjk" id="5au-HC-cnZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brI-ie-bEs">
@@ -212,6 +222,7 @@
                                                     <rect key="frame" x="119" y="55" width="186" height="2"/>
                                                 </progressView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NS0-s2-ng4">
+
                                                     <rect key="frame" x="15" y="4" width="76" height="76"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="NS0-s2-ng4" secondAttribute="height" multiplier="76:79" id="G4w-UZ-Gyc"/>
@@ -263,7 +274,7 @@
             <objects>
                 <viewController storyboardIdentifier="Index" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LLx-To-KVM" customClass="ViewControllerTema" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ywJ-xm-5zw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZa-gN-fOk">
@@ -311,7 +322,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IOY-HI-nx4">
-                                                    <rect key="frame" x="88" y="31.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="75" y="25.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -391,17 +402,17 @@
             <objects>
                 <viewController storyboardIdentifier="questionary" id="Z7k-2c-VS3" customClass="ViewControllerQuestionary" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eeU-vQ-3YA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kX-YX-sf7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="2pY-YJ-9Zy"/>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsd-x6-ojo">
-                                <rect key="frame" x="102.5" y="587" width="170" height="50"/>
+                                <rect key="frame" x="102.5" y="607" width="170" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Q81-KO-veB"/>
@@ -415,7 +426,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCr-qk-6bW">
-                                <rect key="frame" x="175" y="76" width="200" height="35"/>
+                                <rect key="frame" x="175" y="64" width="200" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="QvU-WK-Lwy"/>
@@ -425,14 +436,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7JK-br-AWp">
-                                <rect key="frame" x="0.0" y="119" width="375" height="448"/>
+                                <rect key="frame" x="0.0" y="107" width="375" height="480"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="question" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="question" rowHeight="534" id="uTy-nV-hYy" customClass="questionTableViewCell" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="534"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uTy-nV-hYy" id="CaD-NJ-rn9" customClass="questionTableViewCell" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="533.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5JJ-xC-X32">
@@ -538,7 +549,7 @@
             <objects>
                 <viewController storyboardIdentifier="results" id="FLV-9w-xLy" customClass="ViewControllerResultados" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YF5-OL-7UY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TyM-gk-53e" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
@@ -673,11 +684,11 @@
             <objects>
                 <viewController id="th7-rF-Xw5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="10W-ge-DfZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrj-FA-RSX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="lnr-61-dVv"/>
                                 </constraints>
@@ -686,21 +697,21 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k99-ca-lpC">
-                                <rect key="frame" x="67" y="165" width="241" height="317"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="67" y="185" width="241" height="297"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Cultura Visual y Sonora ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Agosto Diciembre de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
 Desarrolladores: 
 Alejandro De la Cruz Tarin
 Eli Moreira Olguín
 Layla Tame
 Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aoj-C0-MF0">
-                                <rect key="frame" x="46" y="165" width="283" height="377"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="46" y="185" width="283" height="377"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aoj-C0-MF0" secondAttribute="height" multiplier="283:377" id="YYI-GW-Bb2"/>
                                     <constraint firstAttribute="height" constant="377" id="xEN-FW-yHa"/>
@@ -713,12 +724,12 @@ Eli Moreira Olguín
 Layla Tame Chaya
 
 Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="k99-ca-lpC" firstAttribute="centerX" secondItem="aoj-C0-MF0" secondAttribute="centerX" id="2Na-dE-AbF"/>
                             <constraint firstItem="k99-ca-lpC" firstAttribute="centerY" secondItem="10W-ge-DfZ" secondAttribute="centerY" id="2iS-0d-2b1"/>
@@ -737,14 +748,14 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7O-IZ-Xdv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1149.5999999999999" y="-430.43478260869568"/>
+            <point key="canvasLocation" x="-1151" y="-245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ovF-Tq-El0">
             <objects>
                 <navigationController id="YMj-KO-ThV" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dh9-GW-lv2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -760,7 +771,7 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
             <objects>
                 <viewController id="CLc-PX-egA" customClass="ViewControllerAvances" customModule="Cultara_Visual_y_Sonora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kko-zd-uhN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZW-uc-UjC">
@@ -795,7 +806,7 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
                                         <rect key="frame" x="0.0" y="28" width="309" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hz0-fM-dsD" id="LYS-E6-Efd">
-                                            <rect key="frame" x="0.0" y="0.0" width="309" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="309" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE9-Kb-De3">
@@ -809,7 +820,7 @@ Cultura Visual y Sonora se distribuye como está de manera gratuita y se prohi�
                                                     <rect key="frame" x="78" y="40" width="202" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </progressView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="book" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LUu-eO-gn6">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="book" translatesAutoresizingMaskIntoConstraints="NO" id="LUu-eO-gn6">
                                                     <rect key="frame" x="6" y="6" width="61" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
